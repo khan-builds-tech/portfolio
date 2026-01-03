@@ -76,9 +76,9 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="relative flex items-center justify-center order-1 md:order-2 mb-4 md:mb-0"
             >
-              <div className="relative w-full max-w-[200px] sm:max-w-[240px] md:max-w-xs mx-auto">
+              <div className="relative w-full max-w-[320px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[500px] mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full blur-3xl opacity-30 dark:opacity-20 scale-90"></div>
-                <div className="relative rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl aspect-square w-full max-w-[200px] sm:max-w-[240px] md:max-w-[280px] mx-auto">
+                <div className="relative rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl aspect-square w-full max-w-[320px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[500px] mx-auto">
                   <ProfileImage />
                 </div>
               </div>

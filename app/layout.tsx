@@ -4,6 +4,7 @@ import Navigation from "@/components/common/Navigation";
 import { ThemeProvider } from "@/components/common/ThemeProvider";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://amankhan.dev"; // Update with your actual domain
+const profileImageUrl = process.env.NEXT_PUBLIC_PROFILE_IMAGE_URL || `${siteUrl}/images/profile.jpeg`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -55,7 +56,7 @@ export const metadata: Metadata = {
     description: "Tech Lead with 8+ years of experience in full-stack web development, specializing in building scalable applications using React, Node.js, and Kubernetes.",
     images: [
       {
-        url: `${siteUrl}/images/profile.jpg`,
+        url: profileImageUrl,
         width: 1200,
         height: 630,
         alt: "Aman Khan - Tech Lead",
@@ -66,7 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Aman Khan — Tech Lead | Full Stack Engineer",
     description: "Tech Lead with 8+ years of experience in full-stack web development, specializing in React, Node.js, and Kubernetes.",
-    images: [`${siteUrl}/images/profile.jpg`],
+    images: [profileImageUrl],
     creator: "@amankhan", // Update with your Twitter handle if available
   },
   robots: {

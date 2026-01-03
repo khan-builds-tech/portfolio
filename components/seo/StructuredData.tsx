@@ -11,7 +11,7 @@ export default function StructuredData() {
     description:
       "Tech Lead with 8+ years of experience in full-stack web development, specializing in building scalable applications using React, Node.js, and Kubernetes.",
     url: siteUrl,
-    image: `${siteUrl}/images/profile.jpg`,
+    image: `${siteUrl}/images/profile.jpeg`,
     email: "aman2810khan@gmail.com",
     telephone: "+91-9911233029",
     sameAs: [
@@ -52,7 +52,7 @@ export default function StructuredData() {
       jobTitle: "Tech Lead",
       description:
         "Tech Lead with 8+ years of experience in full-stack web development",
-      image: `${siteUrl}/images/profile.jpg`,
+      image: `${siteUrl}/images/profile.jpeg`,
       email: "aman2810khan@gmail.com",
       url: siteUrl,
     },
