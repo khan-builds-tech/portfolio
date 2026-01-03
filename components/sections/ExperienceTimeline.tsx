@@ -55,8 +55,8 @@ const experiences: Experience[] = [
 
 export default function ExperienceTimeline() {
   return (
-    <section id="experience" className="py-8 md:py-12 bg-white dark:bg-gray-900 scroll-mt-20 w-full max-w-full overflow-x-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
+    <section id="experience" className="py-8 md:py-12 bg-white dark:bg-gray-900 scroll-mt-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,9 +72,9 @@ export default function ExperienceTimeline() {
           </p>
         </motion.div>
 
-        <div className="relative max-w-4xl mx-auto w-full overflow-x-hidden">
-          {/* Timeline line */}
-          <div className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-blue-500 dark:from-blue-400 dark:via-purple-400 dark:to-blue-400 transform md:-translate-x-1/2"></div>
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 md:px-0">
+          {/* Timeline line - Hidden on mobile */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-blue-500 dark:from-blue-400 dark:via-purple-400 dark:to-blue-400 transform -translate-x-1/2"></div>
 
           <div className="space-y-8 sm:space-y-12">
             {experiences.map((exp, index) => (
@@ -105,25 +105,25 @@ function TimelineItem({
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.6, delay: index * 0.2 }}
-      className={`relative flex items-center ${
+      className={`relative flex items-start md:items-center ${
         isEven ? "md:flex-row" : "md:flex-row-reverse"
       } flex-col`}
     >
-      {/* Timeline dot */}
-      <div className="absolute left-4 sm:left-6 md:left-1/2 transform md:-translate-x-1/2 z-10">
+      {/* Timeline dot - Hidden on mobile */}
+      <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 z-10 top-auto">
         <motion.div
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
           transition={{ duration: 0.4, delay: index * 0.2 + 0.3 }}
-          className="w-3 h-3 sm:w-4 sm:h-4 bg-blue-600 dark:bg-blue-400 rounded-full border-2 sm:border-4 border-white dark:border-gray-900 shadow-lg"
+          className="w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full border-4 border-white dark:border-gray-900 shadow-lg"
         >
-          <div className="absolute inset-0 w-3 h-3 sm:w-4 sm:h-4 bg-blue-600 dark:bg-blue-400 rounded-full animate-ping opacity-20"></div>
+          <div className="absolute inset-0 w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full animate-ping opacity-20"></div>
         </motion.div>
       </div>
 
       {/* Content card */}
       <div
-        className={`w-full max-w-full md:w-[45%] ml-0 sm:ml-0 md:ml-0 pl-4 pr-4 sm:pl-6 sm:pr-6 md:pl-0 md:pr-0 ${
+        className={`w-full md:w-[45%] md:ml-0 ${
           isEven ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"
         }`}
       >
