@@ -144,36 +144,36 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed inset-0 z-[60] flex items-center justify-center p-4"
+            className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden relative">
+            <div className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-md overflow-hidden relative max-h-[90vh] overflow-y-auto">
               {/* Header with Gradient */}
-              <div className="bg-gradient-to-r from-blue-400 to-green-400 px-6 py-6 relative">
-                <h2 className="text-2xl font-semibold text-gray-900 mb-1">
+              <div className="bg-gradient-to-r from-blue-400 to-green-400 px-4 sm:px-6 py-4 sm:py-6 relative">
+                <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-1 pr-8 sm:pr-0">
                   How can I assist you?
                 </h2>
-                <p className="text-sm text-gray-700">
+                <p className="text-xs sm:text-sm text-gray-700">
                   I typically reply within a few hours.
                 </p>
                 
                 {/* Close Button */}
                 <button
                   onClick={onClose}
-                  className="absolute top-4 right-4 w-8 h-8 bg-green-500 hover:bg-green-600 text-white rounded-full flex items-center justify-center transition-colors z-10 shadow-lg"
+                  className="absolute top-3 right-3 sm:top-4 sm:right-4 w-7 h-7 sm:w-8 sm:h-8 bg-green-500 hover:bg-green-600 text-white rounded-full flex items-center justify-center transition-colors z-10 shadow-lg touch-manipulation"
                   aria-label="Close"
                 >
-                  <X size={18} />
+                  <X size={16} className="sm:w-[18px] sm:h-[18px]" />
                 </button>
               </div>
 
               {/* Form */}
-              <form onSubmit={handleSubmit} className="px-6 py-6 space-y-5">
+              <form onSubmit={handleSubmit} className="px-4 sm:px-6 py-4 sm:py-6 space-y-4 sm:space-y-5">
                 {/* Full Name */}
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-gray-900 dark:text-white mb-2"
+                    className="block text-xs sm:text-sm font-medium text-gray-900 dark:text-white mb-1.5 sm:mb-2"
                   >
                     Full Name
                   </label>
@@ -183,14 +183,14 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     value={formData.name}
                     onChange={(e) => handleChange("name", e.target.value)}
                     placeholder="Elon Musk"
-                    className={`w-full px-4 py-3 border rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-colors ${
+                    className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-colors ${
                       errors.name
                         ? "border-red-500 focus:ring-red-500"
                         : "border-gray-300 dark:border-gray-700 focus:ring-blue-500"
                     }`}
                   />
                   {errors.name && (
-                    <p className="mt-1 text-sm text-red-500">{errors.name}</p>
+                    <p className="mt-1 text-xs sm:text-sm text-red-500">{errors.name}</p>
                   )}
                 </div>
 
@@ -198,7 +198,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-gray-900 dark:text-white mb-2"
+                    className="block text-xs sm:text-sm font-medium text-gray-900 dark:text-white mb-1.5 sm:mb-2"
                   >
                     Email Address
                   </label>
@@ -208,14 +208,14 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     value={formData.email}
                     onChange={(e) => handleChange("email", e.target.value)}
                     placeholder="you@company.com"
-                    className={`w-full px-4 py-3 border rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-colors ${
+                    className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-colors ${
                       errors.email
                         ? "border-red-500 focus:ring-red-500"
                         : "border-gray-300 dark:border-gray-700 focus:ring-blue-500"
                     }`}
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+                    <p className="mt-1 text-xs sm:text-sm text-red-500">{errors.email}</p>
                   )}
                 </div>
 
@@ -223,7 +223,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-900 dark:text-white mb-2"
+                    className="block text-xs sm:text-sm font-medium text-gray-900 dark:text-white mb-1.5 sm:mb-2"
                   >
                     Your Message
                   </label>
@@ -233,14 +233,14 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     onChange={(e) => handleChange("message", e.target.value)}
                     placeholder="Your Message"
                     rows={4}
-                    className={`w-full px-4 py-3 border rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-colors resize-none ${
+                    className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-colors resize-none ${
                       errors.message
                         ? "border-red-500 focus:ring-red-500"
                         : "border-gray-300 dark:border-gray-700 focus:ring-blue-500"
                     }`}
                   />
                   {errors.message && (
-                    <p className="mt-1 text-sm text-red-500">{errors.message}</p>
+                    <p className="mt-1 text-xs sm:text-sm text-red-500">{errors.message}</p>
                   )}
                 </div>
 
@@ -249,10 +249,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center gap-2 p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg"
+                    className="flex items-center gap-2 p-2.5 sm:p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg"
                   >
-                    <CheckCircle size={18} className="text-green-600 dark:text-green-400" />
-                    <p className="text-sm text-green-700 dark:text-green-400">{statusMessage}</p>
+                    <CheckCircle size={16} className="sm:w-[18px] sm:h-[18px] text-green-600 dark:text-green-400 flex-shrink-0" />
+                    <p className="text-xs sm:text-sm text-green-700 dark:text-green-400">{statusMessage}</p>
                   </motion.div>
                 )}
 
@@ -260,10 +260,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center gap-2 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg"
+                    className="flex items-center gap-2 p-2.5 sm:p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg"
                   >
-                    <AlertCircle size={18} className="text-red-600 dark:text-red-400" />
-                    <p className="text-sm text-red-700 dark:text-red-400">{statusMessage}</p>
+                    <AlertCircle size={16} className="sm:w-[18px] sm:h-[18px] text-red-600 dark:text-red-400 flex-shrink-0" />
+                    <p className="text-xs sm:text-sm text-red-700 dark:text-red-400">{statusMessage}</p>
                   </motion.div>
                 )}
 
@@ -271,7 +271,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 text-white rounded-lg font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
+                  className="w-full px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 text-white rounded-lg font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg touch-manipulation"
                 >
                   {status === "sending" ? "Sending..." : "Send Message"}
                 </button>

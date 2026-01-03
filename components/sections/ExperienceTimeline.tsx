@@ -62,21 +62,21 @@ export default function ExperienceTimeline() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8"
+          className="text-center mb-6 sm:mb-8"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
             Experience
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 px-4">
             My professional journey and key achievements
           </p>
         </motion.div>
 
         <div className="relative max-w-4xl mx-auto">
           {/* Timeline line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-blue-500 dark:from-blue-400 dark:via-purple-400 dark:to-blue-400 transform md:-translate-x-1/2"></div>
+          <div className="absolute left-6 sm:left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-blue-500 dark:from-blue-400 dark:via-purple-400 dark:to-blue-400 transform md:-translate-x-1/2"></div>
 
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             {experiences.map((exp, index) => (
               <TimelineItem key={index} experience={exp} index={index} />
             ))}
@@ -110,53 +110,53 @@ function TimelineItem({
       } flex-col`}
     >
       {/* Timeline dot */}
-      <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 z-10">
+      <div className="absolute left-6 sm:left-8 md:left-1/2 transform md:-translate-x-1/2 z-10">
         <motion.div
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
           transition={{ duration: 0.4, delay: index * 0.2 + 0.3 }}
-          className="w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full border-4 border-white dark:border-gray-900 shadow-lg"
+          className="w-3 h-3 sm:w-4 sm:h-4 bg-blue-600 dark:bg-blue-400 rounded-full border-2 sm:border-4 border-white dark:border-gray-900 shadow-lg"
         >
-          <div className="absolute inset-0 w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full animate-ping opacity-20"></div>
+          <div className="absolute inset-0 w-3 h-3 sm:w-4 sm:h-4 bg-blue-600 dark:bg-blue-400 rounded-full animate-ping opacity-20"></div>
         </motion.div>
       </div>
 
       {/* Content card */}
       <div
-        className={`w-full md:w-[45%] ml-16 md:ml-0 ${
+        className={`w-full md:w-[45%] ml-12 sm:ml-16 md:ml-0 ${
           isEven ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"
         }`}
       >
         <motion.div
           whileHover={{ scale: 1.02, y: -5 }}
-          className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl p-6 border border-gray-200 dark:border-gray-700 transition-all duration-300"
+          className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl p-4 sm:p-6 border border-gray-200 dark:border-gray-700 transition-all duration-300"
         >
           {/* Year badge */}
-          <div className="flex items-center gap-2 mb-4">
-            <Briefcase className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-            <span className="text-sm font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-3 py-1 rounded-full">
+          <div className="flex items-center gap-2 mb-3 sm:mb-4">
+            <Briefcase className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400 flex-shrink-0" />
+            <span className="text-xs sm:text-sm font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-2 sm:px-3 py-1 rounded-full">
               {experience.startYear} - {experience.endYear}
             </span>
           </div>
 
           {/* Role */}
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">
             {experience.role}
           </h3>
 
           {/* Company */}
-          <h4 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
+          <h4 className="text-lg sm:text-xl font-semibold text-blue-600 dark:text-blue-400 mb-3 sm:mb-4">
             {experience.company}
           </h4>
 
           {/* Description */}
-          <ul className="space-y-2">
+          <ul className="space-y-1.5 sm:space-y-2">
             {experience.description.map((item, idx) => (
               <li
                 key={idx}
-                className="text-gray-600 dark:text-gray-300 flex items-start gap-2"
+                className="text-sm sm:text-base text-gray-600 dark:text-gray-300 flex items-start gap-2"
               >
-                <span className="text-blue-600 dark:text-blue-400 mt-1.5">▸</span>
+                <span className="text-blue-600 dark:text-blue-400 mt-1.5 flex-shrink-0">▸</span>
                 <span>{item}</span>
               </li>
             ))}

@@ -18,7 +18,7 @@ export default function ProfileImage() {
   if (imageError) {
     return (
       <div className="w-full h-full bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 flex items-center justify-center rounded-full">
-        <span className="text-6xl font-bold text-white">AK</span>
+        <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">AK</span>
       </div>
     );
   }
@@ -27,9 +27,9 @@ export default function ProfileImage() {
     <Image
       src="/images/profile.jpg"
       alt="Aman Khan"
-      width={280}
-      height={280}
-      className="w-full h-full object-cover"
+      fill
+      sizes="(max-width: 640px) 200px, (max-width: 768px) 240px, 280px"
+      className="object-cover"
       priority
       quality={95}
       onError={() => setImageError(true)}

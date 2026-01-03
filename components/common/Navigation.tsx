@@ -112,8 +112,8 @@ export default function Navigation() {
       />
 
       <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/90 dark:bg-gray-900/90 border-b border-gray-200/50 dark:border-gray-800/50 shadow-lg">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
             {/* Logo with enhanced animation */}
             <motion.a
               href="#home"
@@ -122,7 +122,7 @@ export default function Navigation() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <div className="relative w-12 h-12 md:w-14 md:h-14">
+              <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14">
                 <div className="relative w-full h-full">
                   <Image
                     src={logoSrc}
@@ -204,8 +204,8 @@ export default function Navigation() {
             </div>
 
             {/* Mobile Navigation with enhanced scroll indicator */}
-            <div className="flex items-center gap-4">
-              <div className="md:hidden flex items-center gap-2 overflow-x-auto scrollbar-hide pb-2">
+            <div className="flex items-center gap-2 sm:gap-4">
+              <div className="md:hidden flex items-center gap-1.5 sm:gap-2 overflow-x-auto scrollbar-hide pb-2 max-w-[calc(100vw-120px)] sm:max-w-none">
                 {navItems.map((item, index) => {
                   const sectionId = item.href.substring(1);
                   const isActive = activeSection === sectionId;
@@ -214,7 +214,7 @@ export default function Navigation() {
                       key={item.href}
                       href={item.href}
                       onClick={(e) => handleClick(e, item.href)}
-                      className={`relative px-4 py-2 text-xs font-semibold rounded-lg whitespace-nowrap transition-all duration-300 cursor-pointer ${
+                      className={`relative px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-semibold rounded-lg whitespace-nowrap transition-all duration-300 cursor-pointer touch-manipulation ${
                         isActive
                           ? "text-white"
                           : "text-gray-700 dark:text-gray-300"
