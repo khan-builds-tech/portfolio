@@ -31,6 +31,17 @@ const nextConfig = {
         hostname: 'raw.githubusercontent.com',
         pathname: '/**',
       },
+      // Allow YouTube thumbnails
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.ytimg.com',
+        pathname: '/**',
+      },
     ],
   },
   compress: true,

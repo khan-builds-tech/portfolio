@@ -8,6 +8,7 @@ import ExperienceTimeline from "@/components/sections/ExperienceTimeline";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import AchievementsSection from "@/components/sections/AchievementsSection";
+import KnowledgeSharingSection from "@/components/sections/KnowledgeSharingSection";
 import ContactSection from "@/components/sections/ContactSection";
 import ProfileImage from "@/components/common/ProfileImage";
 import StructuredData from "@/components/seo/StructuredData";
@@ -134,6 +135,9 @@ export default function Home() {
 
       {/* Projects Section */}
       <ProjectsSection />
+
+      {/* Knowledge Sharing Section */}
+      <KnowledgeSharingSection />
 
       {/* Skills Section */}
       <SkillsSection />

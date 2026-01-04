@@ -209,7 +209,10 @@ export default function ProfileImage() {
               style={{
                 left: `${(i * 100) / Math.max(matrixChars.length - 1, 1)}%`,
                 top: `${item.y}%`,
-                animation: `matrixRain ${2 + item.speed}s linear infinite`,
+                animationName: 'matrixRain',
+                animationDuration: `${2 + item.speed}s`,
+                animationTimingFunction: 'linear',
+                animationIterationCount: 'infinite',
                 animationDelay: `${item.delay}s`,
                 animationFillMode: 'both',
                 color: '#00FF41', // Matrix green
