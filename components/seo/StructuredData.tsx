@@ -1,6 +1,6 @@
 import Script from "next/script";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://amankhan.dev";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.khanbuilds.tech";
 const profileImageUrl = process.env.NEXT_PUBLIC_PROFILE_IMAGE_URL || `${siteUrl}/images/profile.jpeg`;
 
 // Person Schema - Primary identity for Google Knowledge Panel

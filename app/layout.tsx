@@ -3,7 +3,7 @@ import "../styles/globals.css";
 import Navigation from "@/components/common/Navigation";
 import { ThemeProvider } from "@/components/common/ThemeProvider";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://amankhan.dev";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.khanbuilds.tech";
 const profileImageUrl = process.env.NEXT_PUBLIC_PROFILE_IMAGE_URL || `${siteUrl}/images/profile.jpeg`;
 
 // Viewport configuration (separated from metadata in Next.js 14+)

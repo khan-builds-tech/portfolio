@@ -103,19 +103,19 @@ const nextConfig = {
     ];
   },
   
-  // Redirects for SEO (www to non-www)
+  // Redirects for SEO (non-www to www for khanbuilds.tech)
   async redirects() {
     return [
-      // Redirect www to non-www
+      // Redirect non-www to www
       {
         source: '/:path*',
         has: [
           {
             type: 'host',
-            value: 'www.amankhan.dev',
+            value: 'khanbuilds.tech',
           },
         ],
-        destination: 'https://amankhan.dev/:path*',
+        destination: 'https://www.khanbuilds.tech/:path*',
         permanent: true,
       },
     ];
