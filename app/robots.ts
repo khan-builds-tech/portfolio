@@ -8,10 +8,35 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
+        disallow: ["/api/", "/_next/", "/private/"],
+      },
+      // Googlebot specific rules
+      {
+        userAgent: "Googlebot",
+        allow: "/",
         disallow: ["/api/", "/_next/"],
+      },
+      // Bingbot specific rules  
+      {
+        userAgent: "Bingbot",
+        allow: "/",
+        disallow: ["/api/", "/_next/"],
+      },
+      // Allow social media crawlers full access
+      {
+        userAgent: "Twitterbot",
+        allow: "/",
+      },
+      {
+        userAgent: "facebookexternalhit",
+        allow: "/",
+      },
+      {
+        userAgent: "LinkedInBot",
+        allow: "/",
       },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl,
   };
 }
-

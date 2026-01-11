@@ -1,46 +1,36 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     qualities: [75, 95],
-    // Allow Cloudinary images
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
         pathname: '/**',
       },
-      // Allow Vercel Blob Storage
       {
         protocol: 'https',
         hostname: '*.public.blob.vercel-storage.com',
         pathname: '/**',
       },
-      // Allow Imgur
       {
         protocol: 'https',
         hostname: 'i.imgur.com',
         pathname: '/**',
       },
-      // Allow GitHub raw URLs
       {
         protocol: 'https',
         hostname: 'raw.githubusercontent.com',
         pathname: '/**',
       },
-      // Allow YouTube thumbnails
       {
         protocol: 'https',
         hostname: 'img.youtube.com',
-        pathname: '/**',
-      },
-      // Allow YouTube thumbnails (alternate domain)
-      {
-        protocol: 'https',
-        hostname: 'i.ytimg.com',
         pathname: '/**',
       },
       {
@@ -50,8 +40,86 @@ const nextConfig = {
       },
     ],
   },
+  
   compress: true,
   poweredByHeader: false,
+  
+  // Security Headers - Improves SEO trust signals
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          // Security Headers
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()',
+          },
+        ],
+      },
+      // Cache static assets for better performance (SEO signal)
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:path*.pdf',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400',
+          },
+        ],
+      },
+    ];
+  },
+  
+  // Redirects for SEO (www to non-www)
+  async redirects() {
+    return [
+      // Redirect www to non-www
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.amankhan.dev',
+          },
+        ],
+        destination: 'https://amankhan.dev/:path*',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
