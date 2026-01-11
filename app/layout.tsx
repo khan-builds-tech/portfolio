@@ -118,6 +118,8 @@ export const metadata: Metadata = {
   // Icons & Favicons - Google requires at least 48x48px, multiples of 48 preferred
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "48x48", type: "image/png" },
+      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
       { url: "/images/favicon-48.png", sizes: "48x48", type: "image/png" },
       { url: "/images/favicon-32.png", sizes: "32x32", type: "image/png" },
       { url: "/images/favicon-16.png", sizes: "16x16", type: "image/png" },
@@ -127,11 +129,11 @@ export const metadata: Metadata = {
     apple: [
       { url: "/images/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
-    shortcut: "/images/favicon-48.png",
+    shortcut: "/favicon.ico",
     other: [
       {
         rel: "icon",
-        url: "/images/favicon-48.png",
+        url: "/favicon.ico",
         sizes: "48x48",
       },
     ],
