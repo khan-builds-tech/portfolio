@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "../styles/globals.css";
 import Navigation from "@/components/common/Navigation";
 import { ThemeProvider } from "@/components/common/ThemeProvider";
+import { Analytics } from '@vercel/analytics/next';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.khanbuilds.tech";
 const profileImageUrl = process.env.NEXT_PUBLIC_PROFILE_IMAGE_URL || `${siteUrl}/images/profile.jpeg`;
@@ -308,6 +309,7 @@ export default function RootLayout({
             {children}
           </div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
