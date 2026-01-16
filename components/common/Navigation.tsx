@@ -27,7 +27,7 @@ export default function Navigation() {
     damping: 30,
     restDelta: 0.001,
   });
-  
+
   // Determine which logo to use based on theme
   const logoSrc = mounted && theme === "light" ? "/images/AK_Light.png" : "/images/AK_Dark.png";
 
@@ -69,13 +69,13 @@ export default function Navigation() {
         if (section) {
           const sectionTop = section.offsetTop;
           const sectionHeight = section.offsetHeight;
-          
+
           // For the last section, also check if we're near the bottom
           if (i === sections.length - 1 && isNearBottom) {
             setActiveSection(sections[i]);
             break;
           }
-          
+
           // Standard detection: check if scroll position is within section bounds
           if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
             setActiveSection(sections[i]);
@@ -169,11 +169,10 @@ export default function Navigation() {
                       }}
                       href={item.href}
                       onClick={(e) => handleClick(e, item.href)}
-                      className={`relative px-5 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 cursor-pointer ${
-                        isActive
+                      className={`relative px-5 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 cursor-pointer ${isActive
                           ? "text-white dark:text-white"
                           : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100"
-                      }`}
+                        }`}
                       whileHover={{ y: -2 }}
                       whileTap={{ y: 0 }}
                     >
@@ -190,11 +189,10 @@ export default function Navigation() {
 
                       {/* Text with glow effect when active */}
                       <span
-                        className={`relative z-10 ${
-                          isActive
+                        className={`relative z-10 ${isActive
                             ? "drop-shadow-lg"
                             : "hover:drop-shadow-sm"
-                        }`}
+                          }`}
                       >
                         {item.label}
                       </span>
@@ -215,11 +213,10 @@ export default function Navigation() {
                       key={item.href}
                       href={item.href}
                       onClick={(e) => handleClick(e, item.href)}
-                      className={`relative px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-semibold rounded-lg whitespace-nowrap transition-all duration-300 cursor-pointer touch-manipulation ${
-                        isActive
+                      className={`relative px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-semibold rounded-lg whitespace-nowrap transition-all duration-300 cursor-pointer touch-manipulation ${isActive
                           ? "text-white"
                           : "text-gray-700 dark:text-gray-300"
-                      }`}
+                        }`}
                       whileTap={{ scale: 0.95 }}
                     >
                       {isActive && (

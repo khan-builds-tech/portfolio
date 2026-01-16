@@ -19,25 +19,50 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  
-  // Primary Meta Tags
+
+  // Primary Meta Tags - Optimized for target search queries
   title: {
-    default: "Aman Khan — Frontend Developer | Tech Lead | Full Stack Engineer",
-    template: "%s | Aman Khan - Frontend Developer",
+    default: "Aman Khan Frontend Developer | Khan Builds Tech | ReactJS Expert | NextJS Full Stack Engineer",
+    template: "%s | Khan Builds Tech - Aman Khan",
   },
-  description: "Aman Khan - Senior Frontend Developer & Tech Lead with 8+ years of experience in full-stack web development. Expert in React, Next.js, Node.js, and Kubernetes. Building scalable applications and leading high-performance engineering teams at Innovaccer.",
-  
-  // Comprehensive Keywords
+  description: "Khan Builds Tech - Aman Khan's portfolio. Frontend Developer & Full Stack Engineer with 8+ years of experience. Expert in ReactJS, NextJS, Node.js, and TypeScript. Leading scalable web applications and engineering teams. Available for ReactJS and NextJS opportunities.",
+
+  // Comprehensive Keywords - Optimized for target search queries
   keywords: [
+    // Primary target keywords - Khan Builds Tech
+    "Khan Builds Tech",
+    "Khan Builds Tech Frontend",
+    "Khan Builds Tech Frontend Developer",
+    "Khan Builds Tech ReactJS",
+    "Khan Builds Tech React JS",
+    "Khan Builds Tech NextJS",
+    "Khan Builds Tech Next JS",
+    "Khan Builds Tech Fullstack",
+    "Khan Builds Tech Full Stack",
+    "Khan Builds Tech Full Stack Developer",
+    "Khan Builds Tech Portfolio",
+    "Khan Builds Tech Developer",
+
+    // Primary target keywords - Aman Khan
+    "Aman Frontend",
+    "Aman Khan Frontend",
+    "Aman Khan Frontend Developer",
+    "Aman Khan ReactJS",
+    "Aman Khan React JS",
+    "Aman Khan NextJS",
+    "Aman Khan Next JS",
+    "Aman Khan Fullstack",
+    "Aman Khan Full Stack",
+    "Aman Khan Full Stack Developer",
+
     // Name variations
     "Aman Khan",
-    "Aman Khan Frontend",
     "Aman Khan Developer",
     "Aman Khan React",
     "Aman Khan Portfolio",
     "Aman Khan Tech Lead",
     "Aman Khan Software Engineer",
-    
+
     // Job titles
     "Frontend Developer",
     "Senior Frontend Developer",
@@ -49,7 +74,7 @@ export const metadata: Metadata = {
     "Frontend Engineer",
     "Backend Developer",
     "Lead Developer",
-    
+
     // Technologies
     "React Developer",
     "React.js Developer",
@@ -59,7 +84,7 @@ export const metadata: Metadata = {
     "TypeScript Developer",
     "Kubernetes Developer",
     "Docker Developer",
-    
+
     // Skills
     "React",
     "Next.js",
@@ -74,19 +99,19 @@ export const metadata: Metadata = {
     "MongoDB",
     "Python",
     "AWS",
-    
+
     // Companies
     "Innovaccer",
     "Collegedunia",
     "Newgen Software",
-    
+
     // Location
     "India",
     "Delhi",
     "Developer India",
     "Frontend Developer India",
     "React Developer India",
-    
+
     // Other
     "Portfolio",
     "Software Development",
@@ -94,7 +119,7 @@ export const metadata: Metadata = {
     "Hire Frontend Developer",
     "IIIT Delhi",
   ],
-  
+
   // Author Information
   authors: [
     { name: "Aman Khan", url: siteUrl },
@@ -102,19 +127,19 @@ export const metadata: Metadata = {
   ],
   creator: "Aman Khan",
   publisher: "Aman Khan",
-  
+
   // Application Info
-  applicationName: "Aman Khan Portfolio",
+  applicationName: "Khan Builds Tech - Aman Khan Portfolio",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
-  
+
   // Format Detection
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  
+
   // Icons & Favicons - Google requires at least 48x48px, multiples of 48 preferred
   icons: {
     icon: [
@@ -138,18 +163,18 @@ export const metadata: Metadata = {
       },
     ],
   },
-  
+
   // PWA Manifest
   manifest: "/site.webmanifest",
-  
+
   // Open Graph (Facebook, LinkedIn, etc.)
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Aman Khan — Frontend Developer & Tech Lead",
-    title: "Aman Khan — Frontend Developer | Tech Lead | React Expert",
-    description: "Senior Frontend Developer & Tech Lead with 8+ years of experience. Expert in React, Next.js, Node.js, and Kubernetes. Currently at Innovaccer.",
+    siteName: "Khan Builds Tech — Aman Khan Frontend Developer & Tech Lead",
+    title: "Khan Builds Tech | Aman Khan Frontend Developer | ReactJS Expert | NextJS Full Stack Engineer",
+    description: "Khan Builds Tech - Aman Khan's portfolio. Frontend Developer and Full Stack Engineer specializing in ReactJS and NextJS. 8+ years of experience building scalable web applications with React, Next.js, Node.js, and TypeScript.",
     images: [
       {
         url: profileImageUrl,
@@ -168,7 +193,7 @@ export const metadata: Metadata = {
     ],
     countryName: "India",
   },
-  
+
   // Twitter Card
   twitter: {
     card: "summary_large_image",
@@ -181,7 +206,7 @@ export const metadata: Metadata = {
       alt: "Aman Khan - Frontend Developer & Tech Lead",
     },
   },
-  
+
   // Robots & Indexing
   robots: {
     index: true,
@@ -196,7 +221,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  
+
   // Verification Tags
   verification: {
     google: "8KMBQbCOQYUPguTJwZ7yEUNJymvvZgdTbppubq0PyUA",
@@ -204,7 +229,7 @@ export const metadata: Metadata = {
     // yandex: "your-yandex-verification-code",
     // bing: "your-bing-verification-code",
   },
-  
+
   // Canonical & Alternates
   alternates: {
     canonical: siteUrl,
@@ -213,10 +238,10 @@ export const metadata: Metadata = {
       "en": siteUrl,
     },
   },
-  
+
   // Category
   category: "technology",
-  
+
   // Additional Meta
   other: {
     // Geo tags for local SEO
@@ -224,33 +249,33 @@ export const metadata: Metadata = {
     "geo.placename": "Delhi",
     "geo.position": "28.6139;77.2090",
     "ICBM": "28.6139, 77.2090",
-    
+
     // Content info
     "content-language": "en-US",
     "revisit-after": "7 days",
     "rating": "General",
-    
+
     // Pinterest
     "pinterest": "nopin",
-    
+
     // MS Application
     "msapplication-TileColor": "#1f2937",
     "msapplication-config": "/browserconfig.xml",
-    
+
     // Apple
     "apple-mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "black-translucent",
     "apple-mobile-web-app-title": "Aman Khan",
-    
+
     // Format detection
     "format-detection": "telephone=no",
-    
+
     // Author
     "author": "Aman Khan",
     "designer": "Aman Khan",
     "owner": "Aman Khan",
     "copyright": `© ${new Date().getFullYear()} Aman Khan. All rights reserved.`,
-    
+
     // Classification
     "classification": "Portfolio, Technology, Software Development",
     "distribution": "Global",
@@ -271,7 +296,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.youtube.com" />
         <link rel="preconnect" href="https://i.ytimg.com" />
-        
+
         {/* DNS Prefetch */}
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />

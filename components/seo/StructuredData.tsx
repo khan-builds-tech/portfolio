@@ -11,7 +11,12 @@ const personSchema = {
   name: "Aman Khan",
   givenName: "Aman",
   familyName: "Khan",
-  alternateName: ["Aman Khan Developer", "Aman Khan Frontend"],
+  // Best Practice: Use only legitimate alternate names (2-5 max)
+  // Production sites typically use brand names or commonly used variations
+  alternateName: [
+    "Khan Builds Tech", // Brand/portfolio name
+    "Aman Khan Developer", // Common professional variation
+  ],
   jobTitle: "Senior Frontend Developer & Tech Lead",
   description:
     "Senior Frontend Developer & Tech Lead with 8+ years of experience in full-stack web development. Expert in React, Next.js, Node.js, and Kubernetes. Building scalable applications and leading high-performance engineering teams.",
@@ -52,6 +57,7 @@ const personSchema = {
     logo: `${siteUrl}/images/innovaccer.png`,
   },
   knowsAbout: [
+    // Technologies and skills - Best practice: Use actual technologies/skills
     "React.js",
     "Next.js",
     "Node.js",
@@ -78,9 +84,17 @@ const personSchema = {
   hasOccupation: {
     "@type": "Occupation",
     name: "Software Developer",
+    alternateName: [
+      "Frontend Developer",
+      "Full Stack Developer",
+      "Full Stack Engineer",
+      "ReactJS Developer",
+      "NextJS Developer",
+      "Tech Lead",
+    ],
     occupationalCategory: "15-1252.00",
-    description: "Senior Frontend Developer and Tech Lead specializing in React and Node.js",
-    skills: "React, Next.js, Node.js, TypeScript, Kubernetes, Docker, Microservices",
+    description: "Senior Frontend Developer and Tech Lead specializing in ReactJS, NextJS, and full-stack web development. Khan Builds Tech portfolio showcases expertise in React, Next.js, Node.js, TypeScript, Kubernetes, Docker, and Microservices.",
+    skills: "React, ReactJS, Next.js, NextJS, Node.js, TypeScript, Kubernetes, Docker, Microservices, Full Stack Development, Frontend Development",
     estimatedSalary: {
       "@type": "MonetaryAmountDistribution",
       currency: "INR",
@@ -94,8 +108,8 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": `${siteUrl}/#website`,
-  name: "Aman Khan — Frontend Developer & Tech Lead Portfolio",
-  alternateName: "Aman Khan Portfolio",
+  name: "Khan Builds Tech — Aman Khan Frontend Developer & Tech Lead Portfolio",
+  alternateName: ["Khan Builds Tech", "Aman Khan Portfolio"],
   url: siteUrl,
   description:
     "Portfolio website of Aman Khan, Senior Frontend Developer & Tech Lead with 8+ years of experience in React, Next.js, and Node.js",
@@ -119,7 +133,7 @@ const profilePageSchema = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
   "@id": `${siteUrl}/#profilepage`,
-  name: "Aman Khan — Frontend Developer Portfolio",
+  name: "Khan Builds Tech — Aman Khan Frontend Developer Portfolio",
   url: siteUrl,
   mainEntity: { "@id": `${siteUrl}/#person` },
   about: { "@id": `${siteUrl}/#person` },
@@ -143,36 +157,42 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       position: 2,
+      name: "About",
+      item: `${siteUrl}/#about`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
       name: "Experience",
       item: `${siteUrl}/#experience`,
     },
     {
       "@type": "ListItem",
-      position: 3,
+      position: 4,
       name: "Projects",
       item: `${siteUrl}/#projects`,
     },
     {
       "@type": "ListItem",
-      position: 4,
+      position: 5,
       name: "Knowledge Sharing",
       item: `${siteUrl}/#knowledge-sharing`,
     },
     {
       "@type": "ListItem",
-      position: 5,
+      position: 6,
       name: "Skills",
       item: `${siteUrl}/#skills`,
     },
     {
       "@type": "ListItem",
-      position: 6,
+      position: 7,
       name: "Achievements",
       item: `${siteUrl}/#achievements`,
     },
     {
       "@type": "ListItem",
-      position: 7,
+      position: 8,
       name: "Contact",
       item: `${siteUrl}/#contact`,
     },
@@ -239,7 +259,7 @@ const workExperienceSchema = {
   ],
 };
 
-// FAQPage Schema - Can help with rich snippets
+// FAQPage Schema - Optimized for target search queries
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -247,10 +267,58 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
+      name: "What is Khan Builds Tech?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Khan Builds Tech is the portfolio website of Aman Khan, a Senior Frontend Developer and Tech Lead with 8+ years of experience. Khan Builds Tech showcases Aman Khan's expertise in ReactJS, NextJS, and full-stack web development.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Who is Khan Builds Tech Frontend Developer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Khan Builds Tech Frontend Developer refers to Aman Khan, a Senior Frontend Developer and Tech Lead with 8+ years of experience specializing in ReactJS and NextJS. Khan Builds Tech is his portfolio website showcasing his frontend development expertise.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Who is Aman Khan Frontend Developer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Aman Khan is a Senior Frontend Developer and Tech Lead with 8+ years of experience in ReactJS, NextJS, and full-stack web development. He specializes in building scalable applications using React, Next.js, Node.js, TypeScript, and Kubernetes. His portfolio website is Khan Builds Tech.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is Aman Khan a ReactJS developer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, Aman Khan is an expert ReactJS developer with extensive experience in React, React.js, and React-based applications. He has worked on multiple large-scale React projects and currently leads frontend development using ReactJS and TypeScript.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does Aman Khan work with NextJS?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, Aman Khan is a NextJS expert and full-stack developer. He has extensive experience building production applications with Next.js, including server-side rendering, API routes, and optimized React applications.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is Aman Khan a Full Stack Developer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, Aman Khan is a Full Stack Developer and Full Stack Engineer with expertise in both frontend (ReactJS, NextJS) and backend (Node.js, Express, Django) technologies. He has 8+ years of experience building end-to-end web applications.",
+      },
+    },
+    {
+      "@type": "Question",
       name: "What technologies does Aman Khan specialize in?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Aman Khan specializes in React.js, Next.js, Node.js, TypeScript, Kubernetes, Docker, and Microservices architecture. He has 8+ years of experience in full-stack web development.",
+        text: "Aman Khan specializes in ReactJS, NextJS, Node.js, TypeScript, JavaScript, Kubernetes, Docker, and Microservices architecture. He has 8+ years of experience in full-stack web development and currently works as a Tech Lead.",
       },
     },
     {
@@ -277,10 +345,86 @@ const faqSchema = {
         text: "Aman Khan holds a B.Tech degree in Computer Science and Engineering from IIIT Delhi (Indraprastha Institute of Information Technology Delhi).",
       },
     },
+    {
+      "@type": "Question",
+      name: "What is Khan Builds Tech ReactJS?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Khan Builds Tech ReactJS refers to Aman Khan's expertise in ReactJS development showcased on his portfolio website Khan Builds Tech. Aman Khan is an expert ReactJS developer with 8+ years of experience building scalable React applications.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is Khan Builds Tech NextJS?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Khan Builds Tech NextJS showcases Aman Khan's NextJS development expertise. Aman Khan is a NextJS expert and full-stack developer with extensive experience building production applications using Next.js framework.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is Khan Builds Tech a Full Stack Developer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, Khan Builds Tech represents Aman Khan, a Full Stack Developer and Full Stack Engineer with expertise in both frontend (ReactJS, NextJS) and backend (Node.js, Express, Django) technologies. He has 8+ years of experience building end-to-end web applications.",
+      },
+    },
   ],
 };
 
-// Combined schema graph
+// CreativeWork Schema - Optimized for AI search engines
+const creativeWorkSchema = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "@id": `${siteUrl}/#creativework`,
+  name: "Khan Builds Tech - Aman Khan Portfolio",
+  alternateName: [
+    "Khan Builds Tech",
+    "Aman Khan Portfolio",
+    "Khan Builds Tech Frontend Developer Portfolio",
+  ],
+  description: "Portfolio website of Aman Khan, a Senior Frontend Developer and Tech Lead specializing in ReactJS, NextJS, and full-stack web development. Khan Builds Tech showcases 8+ years of experience in building scalable web applications.",
+  creator: { "@id": `${siteUrl}/#person` },
+  author: { "@id": `${siteUrl}/#person` },
+  publisher: { "@id": `${siteUrl}/#person` },
+  url: siteUrl,
+  inLanguage: "en-US",
+  keywords: [
+    "Khan Builds Tech",
+    "Khan Builds Tech Frontend",
+    "Khan Builds Tech ReactJS",
+    "Khan Builds Tech NextJS",
+    "Khan Builds Tech Fullstack",
+    "Aman Khan Frontend",
+    "Aman Khan ReactJS",
+    "Aman Khan NextJS",
+    "Aman Khan Fullstack",
+    "Frontend Developer",
+    "Full Stack Developer",
+    "ReactJS Developer",
+    "NextJS Developer",
+  ],
+  about: [
+    {
+      "@type": "Thing",
+      name: "Frontend Development",
+    },
+    {
+      "@type": "Thing",
+      name: "Full Stack Development",
+    },
+    {
+      "@type": "Thing",
+      name: "ReactJS",
+    },
+    {
+      "@type": "Thing",
+      name: "NextJS",
+    },
+  ],
+};
+
+// Combined schema graph - Optimized for both Google and AI search engines
 const schemaGraph = {
   "@context": "https://schema.org",
   "@graph": [
@@ -290,6 +434,7 @@ const schemaGraph = {
     breadcrumbSchema,
     workExperienceSchema,
     faqSchema,
+    creativeWorkSchema,
   ],
 };
 
