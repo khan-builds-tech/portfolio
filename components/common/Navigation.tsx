@@ -269,19 +269,15 @@ export default function Navigation() {
             />
 
             {/* Mobile Menu - Full Screen Centered */}
-            <motion.div
+            <div
               ref={mobileMenuRef}
-              initial={{ opacity: 0, scale: 0.95, y: -20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -20 }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
               className="fixed inset-0 md:hidden z-[60] flex items-center justify-center p-4"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="w-full max-w-md bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200/50 dark:border-gray-800/50 p-6">
                 {/* Header */}
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-200/50 dark:border-gray-800/50">
-                  <div className="flex items-center gap-3">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center">
                     <div className="relative w-10 h-10">
                       <Image
                         src={logoSrc}
@@ -290,18 +286,14 @@ export default function Navigation() {
                         className="object-contain"
                       />
                     </div>
-                    <span className="text-lg font-bold text-gray-900 dark:text-gray-100">
-                      Navigation
-                    </span>
                   </div>
-                  <motion.button
+                  <button
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                    whileTap={{ scale: 0.95 }}
                     aria-label="Close menu"
                   >
                     <X className="w-6 h-6" />
-                  </motion.button>
+                  </button>
                 </div>
 
                 {/* Navigation Items */}
@@ -310,37 +302,29 @@ export default function Navigation() {
                     const sectionId = item.href.substring(1);
                     const isActive = activeSection === sectionId;
                     return (
-                      <motion.a
+                      <a
                         key={item.href}
                         href={item.href}
                         onClick={(e) => handleClick(e, item.href)}
                         className={`relative px-4 py-3 text-base font-semibold rounded-lg transition-all duration-300 cursor-pointer ${isActive
-                            ? "text-white"
-                            : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100"
+                          ? "text-white"
+                          : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100"
                           }`}
-                        whileTap={{ scale: 0.98 }}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.05 }}
                       >
                         {isActive && (
-                          <motion.div
+                          <div
                             className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-lg"
-                            initial={{ scale: 0.9, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ duration: 0.2 }}
-                            layoutId="activeMobileMenuItem"
                           />
                         )}
                         <span className="relative z-10 flex items-center justify-center">
                           {item.label}
                         </span>
-                      </motion.a>
+                      </a>
                     );
                   })}
                 </nav>
               </div>
-            </motion.div>
+            </div>
           </>
         )}
       </AnimatePresence>

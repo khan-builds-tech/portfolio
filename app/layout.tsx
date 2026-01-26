@@ -301,6 +301,17 @@ export default function RootLayout({
         {/* DNS Prefetch */}
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+        {/* Preload critical resources */}
+        <link rel="preload" href="/images/AK_Dark.png" as="image" type="image/png" />
+        <link rel="preload" href="/AmanKhan_Resume.pdf" as="document" type="application/pdf" />
+
+        {/* Resource hints for better performance */}
+        <link rel="dns-prefetch" href="https://vercel.live" />
+        <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
+
+        {/* RSS Feed */}
+        <link rel="alternate" type="application/rss+xml" title="Khan Builds Tech RSS Feed" href="/feed.xml" />
       </head>
       <body className="bg-white dark:bg-gray-900 transition-colors duration-200">
         <ThemeProvider>

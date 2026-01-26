@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, Sparkles } from "lucide-react";
+import { Calendar } from "lucide-react";
 import Image from "next/image";
 
 interface Experience {
@@ -85,13 +85,9 @@ export default function ExperienceTimeline() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16"
         >
-          <div className="inline-flex items-center gap-2 mb-4">
-            <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-blue-600 dark:text-blue-400" />
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
-              Experience
-            </h2>
-            <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-purple-600 dark:text-purple-400" />
-          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent mb-4">
+            Experience
+          </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 px-4 max-w-2xl mx-auto">
             My professional journey and key achievements
           </p>

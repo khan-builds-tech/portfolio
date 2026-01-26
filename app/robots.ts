@@ -26,14 +26,33 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "Twitterbot",
         allow: "/",
+        crawlDelay: 0,
       },
       {
         userAgent: "facebookexternalhit",
         allow: "/",
+        crawlDelay: 0,
       },
       {
         userAgent: "LinkedInBot",
         allow: "/",
+        crawlDelay: 0,
+      },
+      // AI/ML crawlers with controlled access
+      {
+        userAgent: "GPTBot",
+        allow: "/",
+        crawlDelay: 2,
+      },
+      {
+        userAgent: "ChatGPT-User",
+        allow: "/",
+        crawlDelay: 2,
+      },
+      {
+        userAgent: "CCBot",
+        allow: "/",
+        crawlDelay: 2,
       },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,

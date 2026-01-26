@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Linkedin, FileText, Sparkles } from "lucide-react";
+import { Linkedin, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import ExperienceTimeline from "@/components/sections/ExperienceTimeline";
 import ProjectsSection from "@/components/sections/ProjectsSection";
@@ -49,17 +49,6 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-2 md:order-1 text-center md:text-left"
               >
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-3 sm:mb-4"
-                >
-                  <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600 dark:text-blue-400" />
-                  <span className="text-xs sm:text-sm font-medium text-blue-600 dark:text-blue-400">
-                    Available for Opportunities
-                  </span>
-                </motion.div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
                   Aman Khan
                 </h1>
