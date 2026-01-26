@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
 import { useTheme } from "./ThemeProvider";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
   { href: "#home", label: "Home" },
@@ -19,8 +20,10 @@ export default function Navigation() {
   const { theme, mounted } = useTheme();
   const [activeSection, setActiveSection] = useState("home");
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -101,8 +104,36 @@ export default function Navigation() {
         top: offsetTop,
         behavior: "smooth",
       });
+      // Close mobile menu if open
+      setIsMobileMenuOpen(false);
     }
   };
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node) &&
+        !(event.target as HTMLElement).closest('[data-mobile-menu-button]')
+      ) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <>
@@ -170,8 +201,8 @@ export default function Navigation() {
                       href={item.href}
                       onClick={(e) => handleClick(e, item.href)}
                       className={`relative px-5 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 cursor-pointer ${isActive
-                          ? "text-white dark:text-white"
-                          : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100"
+                        ? "text-white dark:text-white"
+                        : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100"
                         }`}
                       whileHover={{ y: -2 }}
                       whileTap={{ y: 0 }}
@@ -190,8 +221,8 @@ export default function Navigation() {
                       {/* Text with glow effect when active */}
                       <span
                         className={`relative z-10 ${isActive
-                            ? "drop-shadow-lg"
-                            : "hover:drop-shadow-sm"
+                          ? "drop-shadow-lg"
+                          : "hover:drop-shadow-sm"
                           }`}
                       >
                         {item.label}
@@ -202,42 +233,117 @@ export default function Navigation() {
               </div>
             </div>
 
-            {/* Mobile Navigation with enhanced scroll indicator */}
+            {/* Mobile Navigation - Hamburger Menu */}
             <div className="flex items-center gap-2 sm:gap-4">
-              <div className="md:hidden flex items-center gap-1.5 sm:gap-2 overflow-x-auto scrollbar-hide pb-2 max-w-[calc(100vw-120px)] sm:max-w-none">
-                {navItems.map((item, index) => {
-                  const sectionId = item.href.substring(1);
-                  const isActive = activeSection === sectionId;
-                  return (
-                    <motion.a
-                      key={item.href}
-                      href={item.href}
-                      onClick={(e) => handleClick(e, item.href)}
-                      className={`relative px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-semibold rounded-lg whitespace-nowrap transition-all duration-300 cursor-pointer touch-manipulation ${isActive
-                          ? "text-white"
-                          : "text-gray-700 dark:text-gray-300"
-                        }`}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      {isActive && (
-                        <motion.div
-                          className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-lg"
-                          initial={{ scale: 0.8, opacity: 0 }}
-                          animate={{ scale: 1, opacity: 1 }}
-                          transition={{ duration: 0.2 }}
-                          layoutId="activeMobileNavItem"
-                        />
-                      )}
-                      <span className="relative z-10">{item.label}</span>
-                    </motion.a>
-                  );
-                })}
-              </div>
               <ThemeToggle />
+              <motion.button
+                data-mobile-menu-button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="md:hidden p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                whileTap={{ scale: 0.95 }}
+                aria-label="Toggle mobile menu"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
+              </motion.button>
             </div>
           </div>
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-black/60 backdrop-blur-md z-[55] md:hidden"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+
+            {/* Mobile Menu - Full Screen Centered */}
+            <motion.div
+              ref={mobileMenuRef}
+              initial={{ opacity: 0, scale: 0.95, y: -20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed inset-0 md:hidden z-[60] flex items-center justify-center p-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="w-full max-w-md bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200/50 dark:border-gray-800/50 p-6">
+                {/* Header */}
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-200/50 dark:border-gray-800/50">
+                  <div className="flex items-center gap-3">
+                    <div className="relative w-10 h-10">
+                      <Image
+                        src={logoSrc}
+                        alt="AK Logo"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                    <span className="text-lg font-bold text-gray-900 dark:text-gray-100">
+                      Navigation
+                    </span>
+                  </div>
+                  <motion.button
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    whileTap={{ scale: 0.95 }}
+                    aria-label="Close menu"
+                  >
+                    <X className="w-6 h-6" />
+                  </motion.button>
+                </div>
+
+                {/* Navigation Items */}
+                <nav className="flex flex-col gap-2">
+                  {navItems.map((item, index) => {
+                    const sectionId = item.href.substring(1);
+                    const isActive = activeSection === sectionId;
+                    return (
+                      <motion.a
+                        key={item.href}
+                        href={item.href}
+                        onClick={(e) => handleClick(e, item.href)}
+                        className={`relative px-4 py-3 text-base font-semibold rounded-lg transition-all duration-300 cursor-pointer ${isActive
+                            ? "text-white"
+                            : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100"
+                          }`}
+                        whileTap={{ scale: 0.98 }}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.05 }}
+                      >
+                        {isActive && (
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-lg"
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ duration: 0.2 }}
+                            layoutId="activeMobileMenuItem"
+                          />
+                        )}
+                        <span className="relative z-10 flex items-center justify-center">
+                          {item.label}
+                        </span>
+                      </motion.a>
+                    );
+                  })}
+                </nav>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </>
   );
 }
